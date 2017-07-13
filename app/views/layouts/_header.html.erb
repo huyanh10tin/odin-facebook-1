@@ -12,7 +12,12 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Sign In', '#' %></li>
+        <% if user_signed_in? %>
+          <li class="navbar-text">Welcome, <%= current_user.name %></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>
