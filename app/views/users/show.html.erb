@@ -1,3 +1,11 @@
-<%= provide(:title, "#{current_user.name}'s Profile") %>
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= provide(:title, "#{@user.name}'s Profile") %>
+<div class="row">
+  <div class="col-md-12">
+    <h1><%= @user.name %>'s profile</h1>
+
+    <% unless @user == current_user %>
+      <%= render 'send_friend_request' %>
+    <% end %>
+
+  </div>
+</div>
