@@ -1,0 +1,22 @@
+<% provide(:title, "#{current_user.name}'s Friend Requests") %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="list-group">
+      <h4 class="list-group-item-heading">Friend requests</h4>
+      <% @received.each do |request| %>
+        <li class="list-group-item">
+          <strong><%= request.user.name %></strong> wants to be your friend.
+          <div class="btn-group">
+            <%= link_to 'Accept', friend_request_path(request.id), method: :patch, class: 'btn btn-success' %>
+            <%= link_to 'Decline', friend_request_path(request.id), method: :delete, class: 'btn btn-danger' %>
+          </div>
+        </li>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="list-group">
+      <h4 class="list-group-item-heading">Pending requests</h4>
+    </div>
+  </div>
+</div>

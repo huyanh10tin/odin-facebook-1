@@ -18,9 +18,14 @@ class FriendRequestsController < ApplicationController
     redirect_to user_path(friend)
   end
 
+  def update
+    @friend_request.accept_friend
+  end
+
   def destroy
     @friend_request.destroy
-    flash.now[:notice] = 'Friend request declined.'
+    flash[:warning] = 'Friend request declined.'
+    redirect_to user_friend_requests_path(current_user)
   end
 
   private
