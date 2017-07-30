@@ -8,7 +8,18 @@ anakin:
   name: Anakin Skywalker
   email: anakin@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
 luke:
   name: Luke Skywalker
   email: luke@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+han:
+  name: Han Solo
+  email: han@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+leia:
+  name: Leia
+  email: leia@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>

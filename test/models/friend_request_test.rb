@@ -1,22 +1,40 @@
 require 'test_helper'
 
 class FriendRequestTest < ActiveSupport::TestCase
+  include Devise::Test::IntegrationHelpers
+
   def setup
-    @request = FriendRequest.new(user_id: users(:anakin).id,
-                                 friend_id: users(:luke).id)
+    @request = FriendRequest.new(user: users(:anakin),
+                                 friend: users(:han))
   end
 
   test 'should be valid' do
     assert @request.valid?
   end
 
-  test 'user id should be present' do
-    @request.user_id = nil
+  test 'user should be present' do
+    @request.user = nil
     assert_not @request.valid?
   end
 
-  test 'friend id should be present' do
-    @request.friend_id = nil
+  test 'friend should be present' do
+    @request.friend = nil
     assert_not @request.valid?
+  end
+
+  test 'cannot send a request to oneself' do
+    @request.friend = users(:anakin)
+    assert_not @request.valid?
+  end
+
+  test 'cannot send request to a friend' do
+    @request.friend = users(:luke)
+    assert_not @request.valid?
+  end
+
+  test 'cannot send a second request' do
+    second_request = @request.dup
+    @request.save
+    assert_not second_request.valid?
   end
 end

@@ -17,6 +17,11 @@
   <div class="col-md-6">
     <div class="list-group">
       <h4 class="list-group-item-heading">Pending requests</h4>
+      <% @sent.each do |request| %>
+        <li class="list-group-item">
+          <strong><%= request.friend.name %></strong>
+        </li>
+      <% end %>
     </div>
   </div>
 </div>

@@ -19,4 +19,8 @@ class User < ApplicationRecord
     FriendRequest.where(friend: self).count
   end
 
+  def remove_friend(friend)
+    friends.destroy(friend)
+  end
+
 end

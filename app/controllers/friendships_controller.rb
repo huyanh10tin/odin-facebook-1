@@ -4,5 +4,7 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
+    @friend = User.find(params[:friend_id])
+    current_user.remove_friend(@friend)
   end
 end
