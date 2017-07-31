@@ -1,0 +1,7 @@
+<div class="list-group">
+  <% @sent.each do |request| %>
+    <li class="list-group-item">
+      <h5><%= request.friend.name %></h5>
+    </li>
+  <% end %>
+</div>

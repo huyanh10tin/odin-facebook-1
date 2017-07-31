@@ -17,7 +17,7 @@ class FriendshipsControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Friendship.count' do
       delete friendship_path(friendships(:one))
     end
-  assert_redirected_to new_user_session_path
+    assert_redirected_to new_user_session_path
   end
 
   test 'should be signed-in to view friends' do
