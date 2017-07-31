@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
 
-  resources :users, only: :show do
+  resources :users, only: %i[show index] do
     get '/friend_requests', to: 'friend_requests#index'
     get '/friends', to: 'friendships#index'
   end

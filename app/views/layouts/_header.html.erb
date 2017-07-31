@@ -27,9 +27,20 @@
               </li>
             </ul>
           </li>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to 'All users', users_path %></li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              Sign out
+              <span class="glyphicon glyphicon-log-out"></span>
+            <% end %>
+          </li>
         <% else %>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li>
+            <%= link_to new_user_session_path do %>
+              Sign in
+              <span class="glyphicon glyphicon-log-in"></span>
+            <% end %>
+            </li>
         <% end %>
       </ul>
     </div>

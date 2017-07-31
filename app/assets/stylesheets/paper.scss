@@ -7678,6 +7678,9 @@ input[type="checkbox"]:disabled:checked:after,
   color: inherit;
 }
 
+// Fix content overlap at bottom of window
+body { padding-bottom: 70px; }
+
 // Integration of devise and bootstrap
 .field_with_errors {
   @extend .has-error;
