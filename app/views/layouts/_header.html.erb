@@ -27,7 +27,12 @@
               </li>
             </ul>
           </li>
-          <li><%= link_to 'All users', users_path %></li>
+          <li>
+            <%= link_to users_path do %>
+              All users
+              <span class="glyphicon glyphicon-user"></span>
+            <% end %>
+          </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
               Sign out

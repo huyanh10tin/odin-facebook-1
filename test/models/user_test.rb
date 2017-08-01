@@ -70,4 +70,11 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = 'a'
     assert_not @user.valid?
   end
+
+  test "user's posts should be destroyed on user destruction" do
+    @user.posts.create!(content: 'Lorem ipsum')
+    assert_difference 'Post.count', -1 do
+      @user.destroy
+    end
+  end
 end
