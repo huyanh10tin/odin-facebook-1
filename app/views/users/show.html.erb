@@ -1,8 +1,7 @@
 <%= provide(:title, "#{@user.name}'s Profile") %>
 <div class="row">
   <div class="col-md-4">
-    <%= image_tag("profile_placeholder.png", class: 'center-block img-circle', alt: "Chris", width: '283', height: '240') %>
-    <h4 class="text-center"><%= @user.name %></h4>
+    <%= render 'shared/user_info', user: @user %>
     <% unless @user == current_user || @user.friends.include?(current_user) %>
       <%= render 'send_friend_request' %>
     <% end %>
