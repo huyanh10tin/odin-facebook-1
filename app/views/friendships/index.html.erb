@@ -8,7 +8,9 @@
       <h4>You have no friends yet.</h4>
       <%= link_to "Go make some!", users_path, class: "text-primary" %>
     <% else %>
-      <%= render 'friends_list' %>
+      <ul class="list-group">
+        <%= render partial: 'users/friend', collection: @friends %>
+      </ul>
     <% end %>
   </div>
 </div>

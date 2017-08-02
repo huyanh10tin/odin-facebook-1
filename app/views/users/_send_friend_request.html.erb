@@ -1,6 +1,6 @@
 
 <% if current_user.pending_friends.include?(@user) || @user.pending_friends.include?(current_user) %>
-  <button class="btn btn-primary disabled">Send friend request</button>
+  <button class="btn btn-primary btn-block disabled">Send friend request</button>
 <% else %>
-  <%= link_to 'Send friend request', friend_requests_path(friend_id: @user.id), method: :post, class: 'btn btn-primary' %>
+  <%= link_to 'Send friend request', friend_requests_path(friend_id: @user.id), method: :post, class: 'btn btn-primary btn-block' %>
 <% end %>

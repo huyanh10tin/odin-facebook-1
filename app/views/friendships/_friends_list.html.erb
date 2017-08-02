@@ -1,8 +1,0 @@
-<ul class="list-group">
-  <% @friends.each do |friend| %>
-    <li class="list-group-item">
-      <h5><%= friend.name %></h5>
-      <%= link_to "Remove friend", friendship_path(friend), method: :delete, class: "btn btn-default btn-sm" %>
-    </li>
-  <% end %>
-</ul>
