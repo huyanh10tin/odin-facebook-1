@@ -1,11 +1,6 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
-  include Devise::Test::IntegrationHelpers
-
-  def setup
-    @anakin = users(:anakin)
-  end
 
   test "when root url is visited" do
     get root_path
