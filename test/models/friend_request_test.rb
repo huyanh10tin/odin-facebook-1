@@ -4,8 +4,8 @@ class FriendRequestTest < ActiveSupport::TestCase
   include Devise::Test::IntegrationHelpers
 
   def setup
-    @request = FriendRequest.new(user: users(:anakin),
-                                 friend: users(:han))
+    @anakin = users(:anakin)
+    @request = @anakin.friend_requests.build(friend: users(:leia))
   end
 
   test 'should be valid' do
