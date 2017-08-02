@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :friend_requests, only: %i[create update destroy]
   resources :friendships, only: :destroy
+  resources :posts, only: %i[create destroy]
 
   root 'static_pages#home'
 end

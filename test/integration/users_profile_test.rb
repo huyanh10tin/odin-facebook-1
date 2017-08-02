@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class UsersProfileTest < ActionDispatch::IntegrationTest
-  include ApplicationHelper
   include Devise::Test::IntegrationHelpers
 
   def setup
