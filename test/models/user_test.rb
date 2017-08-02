@@ -73,7 +73,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "user's posts should be destroyed on user destruction" do
     @user.posts.create!(content: 'Lorem ipsum')
-    assert_difference 'Post.count', -1 do
+    assert_difference 'Post.count', -3 do
       @user.destroy
     end
   end
