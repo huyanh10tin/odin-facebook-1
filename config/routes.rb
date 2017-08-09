@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'static_pages/_landing' => 'static_pages#_landing'
+  get 'static_pages/home' => 'static_pages#home'
   devise_for :users
 
   get '/home', to: 'static_pages#home'
