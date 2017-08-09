@@ -2,7 +2,7 @@
 <% content_for :class, "profile-page" %>
 <%= provide(:title, "#{@user.name}'s Profile") %>
 
-<div class="header header-filter" style="background-image: url('<%= image_path("profile_background.jpg") %>');"></div>
+<div class="header header-filter" style="background: linear-gradient(to right, #4568dc, #b06ab3);"></div>
   <div class="main main-raised">
     <div class="profile-content">
         <div class="container">
@@ -22,19 +22,19 @@
                   <ul class="nav nav-pills nav-justified" role="tablist">
                     <li class="active">
                       <a href="#feed" role="tab" data-toggle="tab">
-                        <i class="material-icons">camera</i>
+                        <i class="material-icons">rss_feed</i>
                         Feed
                       </a>
                     </li>
                     <li>
                       <a href="#posts" role="tab" data-toggle="tab">
-                        <i class="material-icons">palette</i>
+                        <i class="material-icons">speaker_notes</i>
                         Posts
                       </a>
                     </li>
                     <li>
                       <a href="#friends" role="tab" data-toggle="tab">
-                        <i class="material-icons">favorite</i>
+                        <i class="material-icons">group</i>
                           Friends
                       </a>
                     </li>
@@ -72,3 +72,5 @@
     </div>
   </div>
 </div>
+
+<%= render 'layouts/footer' %>
