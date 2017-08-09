@@ -22,10 +22,10 @@ class UsersSigninTest < ActionDispatch::IntegrationTest
     assert_template 'devise/sessions/new'
     post user_session_path, params: { user: { email: @user.email,
                                               password: 'password' } }
-    assert_redirected_to user_path(@user)
+    assert_redirected_to root_path
     follow_redirect!
     assert_not flash.empty?
-    assert_template 'users/show'
+    assert_template 'static_pages/home'
     assert_select 'a[href=?]', new_user_session_path, count: 0
     assert_select 'a[href=?]', destroy_user_session_path
     assert_select 'a[href=?]', user_path(@user)

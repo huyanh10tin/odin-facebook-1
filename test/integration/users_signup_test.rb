@@ -28,7 +28,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_response :redirect
     follow_redirect!
-    assert_template 'users/show'
+    assert_template 'static_pages/home'
     assert_select 'div.alert'
     # Verify user is signed in
     assert_select 'a[href=?]', new_user_session_path, count: 0
