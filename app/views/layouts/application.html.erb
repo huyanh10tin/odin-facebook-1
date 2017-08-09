@@ -21,7 +21,8 @@
 
   <body class="<%= yield :class %>" data-features="<%= yield :features %>">
     <%= render 'layouts/header' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <div class="wrapper">
+      <%= yield %>
+    </div>
   </body>
 </html>
