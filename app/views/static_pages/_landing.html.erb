@@ -9,40 +9,6 @@
         <h4>Every landing page needs a small description after the big bold title, that's why we added this text here. Add here all the information that can make you or your product create the first impression.</h4>
         <%= link_to 'Sign up!', new_user_registration_path, class: 'btn btn-danger btn-raised' %>
       </div>
-      <div class="col-md-6">
-        <div class="card card-signup">
-          <h3 class="text-center">Create a New Account</h3>
-					<%= form_for(:user, url: user_registration_path) do |f| %>
-						<div class="content">
-
-							<div class="form-group label-floating">
-								<%= f.label :name, class: 'control-label' %>
-								<%= f.text_field :name, class: 'form-control', autofocus: true %>
-							</div>
-
-							<div class="form-group label-floating">
-								<%= f.label :email, class: 'control-label' %>
-								<%= f.email_field :email, class: 'form-control' %>
-							</div>
-
-							<div class="form-group label-floating">
-								<%= f.label :password, class: 'control-label' %>
-								<%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-							</div>
-
-							<div class="form-group label-floating">
-								<%= f.label :password_confirmation, class: 'control-label' %>
-								<%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
-							</div>
-
-							<%= f.submit "Sign up", class: 'btn btn-primary btn-raised' %>
-
-							<h4 class="small">Already have an account?</h4>
-              <%= link_to 'Sign in', new_user_session_path %><br>
-						</div>
-					<% end %>
-				</div>
-      </div>
     </div>
   </div>
 </div>
