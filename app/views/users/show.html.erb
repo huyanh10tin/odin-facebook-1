@@ -1,38 +1,72 @@
+<% content_for :features, "profile-page" %>
+<% content_for :class, "profile-page" %>
 <%= provide(:title, "#{@user.name}'s Profile") %>
-<div class="row">
-  <div class="col-md-4">
-    <%= render 'shared/user_info', user: @user %>
-    <% unless @user == current_user || @user.friends.include?(current_user) %>
-      <%= render 'send_friend_request' %>
-    <% end %>
-  </div>
 
-  <div class="col-md-8">
-    <div class="well well-lg">
-      <ul class="nav nav-tabs nav-justified">
-        <li class="active"><a href="#feed" data-toggle="tab" aria-expanded="true">Feed</a></li>
-        <li class=""><a href="#posts" data-toggle="tab" aria-expanded="false">Your Posts</a></li>
-        <li class=""><a href="#friends" data-toggle="tab" aria-expanded="false">Friends</a></li>
-      </ul>
-      <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade active in" id="feed">
+<div class="header header-filter" style="background-image: url('<%= image_path("profile_background.jpg") %>');"></div>
+  <div class="main main-raised">
+    <div class="profile-content">
+        <div class="container">
+          <div class="row">
+            <div class="profile">
+              <div class="col-md-3">
+                <%= render 'shared/user_info', user: @user %>
+                <% unless @user == current_user || @user.friends.include?(current_user) %>
+                  <%= render 'send_friend_request' %>
+                <% end %>
+              </div>
+            </div>
 
-        </div>
-        <div class="tab-pane fade" id="posts">
-          <ul class="list-group">
-            <%= render @posts %>
-          </ul>
-        </div>
-        <div class="tab-pane fade" id="friends">
+            <div class="col-md-8 col-md-offset-1">
+              <div class="profile">
+                <div class="nav-align-center">
+                  <ul class="nav nav-pills nav-justified" role="tablist">
+                    <li class="active">
+                      <a href="#feed" role="tab" data-toggle="tab">
+                        <i class="material-icons">camera</i>
+                        Feed
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#posts" role="tab" data-toggle="tab">
+                        <i class="material-icons">palette</i>
+                        Posts
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#friends" role="tab" data-toggle="tab">
+                        <i class="material-icons">favorite</i>
+                          Friends
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-          <% if @friends.empty? %>
-            <h4>You have no friends yet.</h4>
-            <%= link_to "Go make some!", users_path, class: "text-primary" %>
-          <% else %>
-            <ul class="list-group">
-              <%= render partial: 'friend', collection: @friends %>
-            </ul>
-          <% end %>
+
+              <div class="tab-content">
+                <div class="tab-pane fade active in" id="feed">
+
+                </div>
+
+                <div class="tab-pane fade" id="posts">
+                  <ul class="list-group">
+                    <%= render @posts %>
+                  </ul>
+                </div>
+
+                <div class="tab-pane fade" id="friends">
+                  <% if @friends.empty? %>
+                    <h4>You have no friends yet.</h4>
+                    <%= link_to "Go make some!", users_path, class: "text-primary" %>
+                  <% else %>
+                    <ul class="list-group">
+                      <%= render partial: 'friend', collection: @friends %>
+                    </ul>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
