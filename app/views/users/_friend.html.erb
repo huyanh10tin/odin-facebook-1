@@ -1,8 +1,8 @@
 <li class="list-group-item">
   <div class="card">
     <div class="content">
-      <%= friend.name %>
-      <!-- <%= link_to "Remove friend", friendship_path(friend), method: :delete, class: "btn btn-default btn-sm" %> -->
+      <h6><%= link_to friend.name, user_path(friend) %></h6>
+      <%= link_to "Remove friend", friendship_path(friend), method: :delete, class: "btn btn-danger btn-raised btn-sm" %>
     </div>
   </div>
 </li>
