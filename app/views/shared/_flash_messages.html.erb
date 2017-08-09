@@ -1,6 +1,6 @@
 <% flash.each do |message_type, message| %>
   <div class="alert alert-<%= flash_class(message_type) %> fade in">
-    <div class="container">
+    <div class="container-fluid">
       <div class="alert-icon">
         <i class="material-icons"><%= alert_icon(message_type) %></i>
       </div>

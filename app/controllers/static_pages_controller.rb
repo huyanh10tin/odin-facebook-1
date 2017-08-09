@@ -1,7 +1,11 @@
 class StaticPagesController < ApplicationController
   def home
-    @user = current_user
-    @post = current_user.posts.build if user_signed_in?
+    if user_signed_in?
+      @user = current_user
+      @posts = current_user.posts
+      @friends = current_user.friends
+      @post = current_user.posts.build
+    end
   end
 
   def about
