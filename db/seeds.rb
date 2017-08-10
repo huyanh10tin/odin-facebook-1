@@ -15,6 +15,6 @@ end
 
 users = User.order(:created_at).take(6)
 50.times do
-  content = Faker::Lorem.paragraphs(2)
+  content = Faker::Lorem.paragraph(3)
   users.each { |user| user.posts.create!(content: content) }
 end
