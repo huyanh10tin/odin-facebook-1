@@ -3,6 +3,14 @@
     <div class="content">
       <h6><%= link_to post.user.name, user_path(post.user) %></h6>
       <p><%= post.content %></p>
+      <p class="text-muted">Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
+
+      <% unless post.user == current_user || current_user.liked_posts.include?(post)  %>
+        <%= link_to likes_path(post_id: post.id), method: :post, class: 'btn btn-primary btn-fab btn-fab-mini btn-round' do %>
+          <i class="material-icons">favorite</i>
+        <% end %>
+      <% end %>
+
     </div>
   </div>
 </div>
