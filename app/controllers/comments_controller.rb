@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :correct_user,  only: :destroy
+
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
@@ -16,7 +18,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.find(params[:id]).destroy
+    @comment = Comment.find(params[:id]).destroy
     redirect_to user_path(comment.post.user)
   end
 
@@ -24,5 +26,10 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content, :post_id)
+  end
+
+  def correct_user
+    @comment = current_user.comments.find_by(id: params[:id])
+    redirect_to root_url if @comment.nil?
   end
 end
