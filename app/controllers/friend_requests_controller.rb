@@ -15,7 +15,7 @@ class FriendRequestsController < ApplicationController
     else
       flash[:danger] = 'Friend request could not be sent.'
     end
-    redirect_to user_path(friend)
+    redirect_to request.referrer
   end
 
   def update
