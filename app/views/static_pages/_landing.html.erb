@@ -1,8 +1,7 @@
 <% content_for :features, "landing-page" %>
 <% content_for :class, "landing-page" %>
 
-<div class="header header-filter" style="background-image: url('assets/landing_background.jpg');">
-<!-- TODO: Change to imgae_tag for heroku deployment -->
+<div class="header header-filter" style="background-image: url('<%= image_path('landing_background.jpg') %>');">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
