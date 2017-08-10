@@ -9,9 +9,7 @@
           <%= will_paginate %>
           <ul class="list-group">
             <% @users.each do |user| %>
-              <li class="list-group-item">
-                <h5><%= link_to user.name, user %></h5>
-              </li>
+              <%= render 'users/friend', friend: user %>
             <% end %>
           </ul>
           <%= will_paginate %>

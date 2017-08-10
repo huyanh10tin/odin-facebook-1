@@ -1,7 +1,11 @@
 <div class="list-group">
   <% @sent.each do |request| %>
     <li class="list-group-item">
-      <h5><%= request.friend.name %></h5>
+      <div class="card">
+        <div class="content">
+          <h5><%= link_to request.friend.name, user_path(request.friend) %></h5>
+        </div>
+      </div>
     </li>
   <% end %>
 </div>
