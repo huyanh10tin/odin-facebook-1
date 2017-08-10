@@ -93,4 +93,16 @@ class UserTest < ActiveSupport::TestCase
       @user.likes.create(post: posts(:the_force))
     end
   end
+
+  test 'associated likes should be destroyed' do
+    assert_difference 'Like.count', -2 do
+      @user.destroy
+    end
+  end
+
+  test 'associated comments should be destroyed' do
+    assert_difference 'Comment.count', -2 do
+      @user.destroy
+    end
+  end
 end
