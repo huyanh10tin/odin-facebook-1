@@ -3,7 +3,7 @@ class LikesController < ApplicationController
     post = Post.find(params[:post_id])
     @like = current_user.likes.build(post: post)
 
-    flash[:danger] = 'Could not like post.' if !@like.save
+    flash[:danger] = 'Could not like post.' unless @like.save
     redirect_to user_path(post.user)
   end
 

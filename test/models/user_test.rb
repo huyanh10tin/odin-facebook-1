@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+  include Devise::Test::IntegrationHelpers
+
   def setup
     @user = users(:anakin)
   end
@@ -75,6 +77,20 @@ class UserTest < ActiveSupport::TestCase
     @user.posts.create!(content: 'Lorem ipsum')
     assert_difference 'Post.count', -3 do
       @user.destroy
+    end
+  end
+
+  test 'user should not be able to like his own posts' do
+    sign_in @user
+    assert_no_difference 'Like.count' do
+      @user.likes.create(post: posts(:podracer))
+    end
+  end
+
+  test 'user can only like a post once' do
+    sign_in @user
+    assert_no_difference 'Like.count' do
+      @user.likes.create(post: posts(:the_force))
     end
   end
 end
