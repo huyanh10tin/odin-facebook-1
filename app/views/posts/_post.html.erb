@@ -4,6 +4,7 @@
       <h6><%= link_to post.user.name, user_path(post.user) %></h6>
       <p><%= post.content %></p>
       <p class="text-muted">Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
+      <p class="text-warning"><%= "#{post.likes.count} #{'person'.pluralize(post.likes.count)}" %> <i class="fa fa-heart"></i> this.</p>
 
       <ul class="list-group">
         <%= render partial: 'comments/comment', collection: post.comments %>
