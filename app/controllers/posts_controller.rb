@@ -6,6 +6,8 @@ class PostsController < ApplicationController
       redirect_to root_url
     else
       @user = current_user
+      @posts = current_user.posts
+      @friends = current_user.friends
       render'static_pages/home'
     end
   end
