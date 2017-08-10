@@ -8,7 +8,7 @@ class PostsController < ApplicationController
       @user = current_user
       @posts = current_user.posts
       @friends = current_user.friends
-      render'static_pages/home'
+      render 'static_pages/home'
     end
   end
 

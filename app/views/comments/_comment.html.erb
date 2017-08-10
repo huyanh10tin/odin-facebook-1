@@ -1,0 +1,7 @@
+<div class="list-group-item">
+  <div class="content">
+    <h6><%= link_to comment.user.name, user_path(comment.user), class: 'text-info' %></h6>
+    <p><%= comment.content %></p>
+    <p class="text-muted">Posted <%= time_ago_in_words(comment.created_at) %> ago.</p>
+  </div>
+</div>
