@@ -2,7 +2,13 @@
   <div class="card">
     <div class="content">
       <h6><%= link_to friend.name, user_path(friend) %></h6>
-      <%= link_to "Remove friend", friendship_path(friend), method: :delete, class: "btn btn-danger btn-raised btn-sm" %>
+
+      <% if current_user.friends.include?(friend) %>
+        <%= link_to "Remove friend", friendship_path(friend), method: :delete, class: "btn btn-danger btn-raised btn-sm" %>
+      <% else %>
+        <%= link_to 'Send friend request', friend_requests_path(friend_id: friend.id), method: :post, class: 'btn btn-primary btn-raised btn-sm' %>
+      <% end %>
+
     </div>
   </div>
 </li>
