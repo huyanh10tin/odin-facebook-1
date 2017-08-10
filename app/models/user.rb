@@ -30,4 +30,12 @@ class User < ApplicationRecord
   def remove_friend(friend)
     friends.destroy(friend)
   end
+
+  def like(post)
+    liked_posts << post
+  end
+
+  def unlike(post)
+    liked_posts.delete(post)
+  end
 end

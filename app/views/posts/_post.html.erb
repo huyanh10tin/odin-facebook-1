@@ -5,11 +5,17 @@
       <p><%= post.content %></p>
       <p class="text-muted">Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
 
-      <% unless post.user == current_user || current_user.liked_posts.include?(post)  %>
-        <%= link_to likes_path(post_id: post.id), method: :post, class: 'btn btn-primary btn-fab btn-fab-mini btn-round' do %>
-          <i class="material-icons">favorite</i>
+      <% unless post.user == current_user %>
+        <% if current_user.liked_posts.include?(post) %>
+          <%= render 'users/unlike', post: post %>
+        <% else %>
+          <%= render 'users/like', post: post %>
         <% end %>
       <% end %>
+
+      <button class="btn btn-primary btn-just-icon" data-toggle="modal" data-target="#myModal">
+        <i class="fa fa-pencil"></i>
+      </button>
 
     </div>
   </div>

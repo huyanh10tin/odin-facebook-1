@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'likes/create'
-
-  get 'likes/index'
-
   get 'static_pages/_landing' => 'static_pages#_landing'
   get 'static_pages/home' => 'static_pages#home'
   devise_for :users
@@ -20,6 +16,7 @@ Rails.application.routes.draw do
   resources :friendships, only: :destroy
   resources :posts, only: %i[create destroy]
   resources :likes, only: %i[create destroy]
+  resources :comments, only: %i[create update destroy]
 
   root 'static_pages#home'
 end
