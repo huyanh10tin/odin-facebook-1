@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
       @user = current_user
       @posts = current_user.posts
       @friends = current_user.friends
-      @post = current_user.posts.build
+      @post = @user.posts.build
     end
   end
 
