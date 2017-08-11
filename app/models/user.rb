@@ -38,4 +38,8 @@ class User < ApplicationRecord
   def unlike(post)
     liked_posts.delete(post)
   end
+
+  def feed
+    Post.where("user_id IN (?) OR user_id = ?", friend_ids, id)
+  end
 end

@@ -6,7 +6,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:post_id])
+    post = Post.find(params[:id])
     current_user.unlike(post)
     redirect_to request.referrer
   end

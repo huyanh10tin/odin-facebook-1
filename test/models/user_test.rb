@@ -105,4 +105,23 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
+
+  test 'feed should contain only own and friend posts' do
+    anakin = users(:anakin)
+    luke = users(:luke)
+    han = users(:han)
+
+    # Posts from friend
+    luke.posts.each do |friend_post|
+      assert anakin.feed.include?(friend_post)
+    end
+    # Posts from self
+    anakin.posts.each do |self_post|
+      assert anakin.feed.include?(self_post)
+    end
+    # Posts from non-friend
+    han.posts.each do |non_friend_post|
+      assert_not anakin.feed.include?(non_friend_post)
+    end
+  end
 end
