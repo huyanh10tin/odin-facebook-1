@@ -13,8 +13,16 @@ User.create!(name:  "Example User",
                password_confirmation: password)
 end
 
+# Posts
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.paragraph(3)
   users.each { |user| user.posts.create!(content: content) }
 end
+
+# Friends
+users = User.all
+user  = users.first
+friends = users[2..50]
+friends.each { |friend| user.friends << friend }
+
