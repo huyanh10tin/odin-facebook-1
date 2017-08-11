@@ -33,12 +33,14 @@
     <ul class="list-group">
       <%= render partial: 'posts/post', collection: @feed, as: 'post' %>
     </ul>
+    <%= will_paginate @feed, param_name: 'feed_page' %>
   </div>
 
   <div class="tab-pane fade" id="posts">
     <ul class="list-group">
       <%= render @posts %>
     </ul>
+    <%= will_paginate @posts, param_name: 'posts_page' %>
   </div>
 
   <div class="tab-pane fade" id="favorites">
@@ -49,6 +51,7 @@
       <ul class="list-group">
         <%= render partial: 'users/favorite', collection: @favorites %>
       </ul>
+      <%= will_paginate @favorites, param_name: 'favorites_page' %>
     <% end %>
   </div>
 
@@ -60,6 +63,7 @@
       <ul class="list-group">
         <%= render partial: 'users/friend', collection: @friends %>
       </ul>
+      <%= will_paginate @friends, param_name: 'friends_page' %>
     <% end %>
   </div>
 </div>
