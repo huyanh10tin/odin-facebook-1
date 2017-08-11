@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
     if user_signed_in?
       @user = current_user
       @posts = current_user.posts
+      @favorites = current_user.liked_posts
       @friends = current_user.friends
       @post = Post.new(user: @user)
     end
