@@ -7,6 +7,6 @@ class FriendshipsController < ApplicationController
     @friend = User.find(params[:id])
     current_user.remove_friend(@friend)
     flash[:info] = 'Friend removed.'
-    redirect_to user_friends_path(current_user)
+    redirect_to request.referrer
   end
 end
