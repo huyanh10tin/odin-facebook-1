@@ -1,16 +1,20 @@
-<div class="list-group">
+<ul class="media-group">
   <% @received.each do |request| %>
-    <li class="list-group-item">
-      <div class="card">
-        <div class="content">
-          <h5><strong><%= request.user.name %></strong> wants to be your friend.</h5>
-          <div class="btn-group">
-            <%= link_to 'Accept', friend_request_path(request.id), method: :patch, class: 'btn btn-primary btn-raised btn-sm' %>
-            <%= link_to 'Decline', friend_request_path(request.id), method: :delete, class: 'btn btn-default btn-sm' %>
+    <div class="card">
+      <div class="content">
+        <li class="media">
+          <div class="media-left">
+            <%= gravatar_for(request.user, size: 100, classes: 'media-object') %>
           </div>
-        </div>
+          <div class="media-body">
+            <h4 class="media-heading"> <%= link_to request.user.name, user_path(request.user) %> wants to be your friend.</h4>
+            <div class="btn-group">
+              <%= link_to 'Accept', friend_request_path(request.id), method: :patch, class: 'btn btn-info btn-raised btn-sm' %>
+              <%= link_to 'Decline', friend_request_path(request.id), method: :delete, class: 'btn btn-danger btn-simple btn-sm' %>
+            </div>
+          </div>
+        </li>
       </div>
-
-    </li>
+    </div>
   <% end %>
-</div>
+</ul>

@@ -1,25 +1,29 @@
-<div class="list-group-item">
+<li class="media">
   <div class="content">
-    <h6><%= link_to comment.user.name, user_path(comment.user), class: 'text-info' %></h6>
-    <p><%= comment.content %></p>
-    <p class="text-muted">Posted <%= time_ago_in_words(comment.created_at) %> ago.</p>
+    <div class="media-left">
+      <%= gravatar_for(comment.user, size: 80, classes: 'media-object') %>
+    </div>
+    <div class="media-body">
+      <h5 class="media-haeding"><%= link_to comment.user.name, user_path(comment.user), class: 'text-info' %></h5>
+      <p><%= comment.content %></p>
+      <p class="text-muted">Posted <%= time_ago_in_words(comment.created_at) %> ago.</p>
 
-    <% if current_user.comments.include?(comment) %>
-      <div class="button-group">
-        <button class="btn btn-info btn-raised btn-sm dropdown-toggle" data-toggle="dropdown">Edit</button>
-        <div class="col-md-12 dropdown-menu">
-          <div class="content">
-            <%= form_for(comment) do |f| %>
-              <div class="form-group">
-                <%= f.text_area :content, class: 'form-control' %>
-              </div>
-              <%= f.submit 'Update', class: 'btn btn-primary btn-sm btn-raised' %>
-            <% end %>
+      <% if current_user.comments.include?(comment) %>
+        <div class="button-group">
+          <button class="btn btn-info btn-raised btn-sm dropdown-toggle" data-toggle="dropdown">Edit</button>
+          <div class="col-md-12 dropdown-menu">
+            <div class="content">
+              <%= form_for(comment) do |f| %>
+                <div class="form-group">
+                  <%= f.text_area :content, class: 'form-control' %>
+                </div>
+                <%= f.submit 'Update', class: 'btn btn-primary btn-sm btn-raised' %>
+              <% end %>
+            </div>
           </div>
+          <%= link_to 'Delete', comment_path(comment.id), method: :delete, class: 'btn btn-danger btn-simple btn-sm' %>
         </div>
-        <%= link_to 'Delete', comment_path(comment.id), method: :delete, class: 'btn btn-danger btn-simple btn-sm' %>
-      </div>
-
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+</li>

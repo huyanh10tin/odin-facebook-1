@@ -1,11 +1,15 @@
-.list-group-item {
-  border: none;
-}
-
 #profile-image {
   max-width: 250px;
 }
 
 .main {
   min-height:100vh;
+}
+
+.card {
+  margin-top: 10px;
+}
+
+.media-group {
+  padding-left: 0;
 }

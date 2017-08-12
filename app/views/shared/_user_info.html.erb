@@ -1,5 +1,5 @@
 <div class="avatar">
-  <%= image_tag("profile_placeholder.png", alt: "Circle Image", class: "img-circle img-responsive img-raised", id: "profile-image") %>
+  <%= gravatar_for(user) %>
 </div>
 <div class="name">
   <h3 class="title text-center"><%= user.name %></h3>

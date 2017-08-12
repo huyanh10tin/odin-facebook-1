@@ -1,11 +1,16 @@
-<div class="list-group">
+<ul class="media-group">
   <% @sent.each do |request| %>
-    <li class="list-group-item">
-      <div class="card">
-        <div class="content">
-          <h5><%= link_to request.friend.name, user_path(request.friend) %></h5>
-        </div>
+    <div class="card">
+      <div class="content">
+        <li class="media">
+          <div class="media-left">
+            <%= gravatar_for(request.friend, size: 100, classes: 'media-object') %>
+          </div>
+          <div class="media-body media-middle">
+            <h4 class="media-heading"><%= link_to request.friend.name, user_path(request.friend) %></h4>
+          </div>
+        </li>
       </div>
-    </li>
+    </div>
   <% end %>
-</div>
+</ul>
