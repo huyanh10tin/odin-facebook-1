@@ -9,6 +9,10 @@
         <h4>This is your space to find friendship. This is your space to rekindle lost loves, reconnect with old pals, and grow with new friends. But mainly, this is a space where I could apply what I've learned in web development. This is Friend Space.</h4>
         <%= link_to 'Sign up!', new_user_registration_path, class: 'btn btn-danger btn-raised btn-lg' %>
         <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-white btn-raised btn-lg' %>
+        <h6>Or use</h6>
+        <%= link_to  user_facebook_omniauth_authorize_path, class: "btn btn-raised btn-info" do %>
+          <i class="fa fa-facebook-official fa-3x"></i>
+        <% end%>
       </div>
     </div>
   </div>
