@@ -30,17 +30,25 @@
 
 <div class="tab-content">
   <div class="tab-pane fade active in" id="feed">
-    <ul class="list-group">
-      <%= render partial: 'posts/post', collection: @feed, as: 'post' %>
-    </ul>
-    <%= will_paginate @feed, param_name: 'feed_page' %>
+    <% if @feed.empty? %>
+      <h4>There's nothing here...</h4>
+    <% else %>
+      <ul class="list-group">
+        <%= render partial: 'posts/post', collection: @feed, as: 'post' %>
+      </ul>
+      <%= will_paginate @feed, param_name: 'feed_page' %>
+    <% end %>
   </div>
 
   <div class="tab-pane fade" id="posts">
-    <ul class="list-group">
-      <%= render @posts %>
-    </ul>
-    <%= will_paginate @posts, param_name: 'posts_page' %>
+    <% if @posts.empty? %>
+      <h4>There's nothing here...</h4>
+    <% else %>
+      <ul class="list-group">
+        <%= render @posts %>
+      </ul>
+      <%= will_paginate @posts, param_name: 'posts_page' %>
+    <% end %>
   </div>
 
   <div class="tab-pane fade" id="favorites">
@@ -67,4 +75,3 @@
     <% end %>
   </div>
 </div>
-

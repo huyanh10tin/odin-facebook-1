@@ -10,7 +10,11 @@
 </div>
 
 <div class="tab-pane fade active in" id="posts">
-  <ul class="media-group">
-    <%= render @posts %>
-  </ul>
+  <% if @posts.empty? %>
+    <h4>There's nothing here...</h4>
+  <% else %>
+    <ul class="media-group">
+      <%= render @posts %>
+    </ul>
+  <% end %>
 </div>
