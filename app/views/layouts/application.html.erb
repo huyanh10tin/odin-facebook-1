@@ -24,6 +24,6 @@
     <div class="wrapper">
       <%= yield %>
     </div>
-    <%= render 'layouts/footer' unless yield :devise_view %>
+    <%= render 'layouts/footer' unless content_for :devise_view %>
   </body>
 </html>
