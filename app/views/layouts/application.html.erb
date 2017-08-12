@@ -24,6 +24,6 @@
     <div class="wrapper">
       <%= yield %>
     </div>
-    <%= render 'layouts/footer' unless current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
+    <%= render 'layouts/footer' unless yield :devise_view %>
   </body>
 </html>
