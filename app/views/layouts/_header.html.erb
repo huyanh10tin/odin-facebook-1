@@ -1,5 +1,6 @@
 <nav class="navbar navbar-transparent navbar-absolute" role="navigation">
   <div class="container">
+    <!-- TODO: Fix empty hamburger nav before log in -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
         <span class="sr-only">Toggle navigation</span>
@@ -10,6 +11,7 @@
       <%= link_to 'Friend Space', root_path, class: 'navbar-brand' %>
     </div>
 
+<!-- TODO: Add icons for all nav elements -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>

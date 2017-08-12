@@ -10,6 +10,8 @@ gem 'devise'
 gem 'faker'
 gem 'jquery-rails'
 gem 'bootstrap-will_paginate'
+gem 'figaro'
+gem 'omniauth-facebook'
 gem 'will_paginate'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

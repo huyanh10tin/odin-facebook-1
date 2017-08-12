@@ -8,9 +8,15 @@
 			<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 				<div class="card card-signup">
 					<h3 class="text-center">Sign in</h3>
+          <div class="social-line">
+            <%= link_to user_facebook_omniauth_authorize_path do %>
+              <i class="fa fa-facebook-square"></i>
+            <% end %>
+          </div>
+          
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="content">
-
+              <p class="text-divider">Or the old-fashioned way</p>
               <div class="form-group label-floating">
                 <%= f.label :email, class: 'control-label' %>
                 <%= f.email_field :email, class: 'form-control', autofocus: true %>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'static_pages/_landing' => 'static_pages#_landing'
   get 'static_pages/home' => 'static_pages#home'
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   get '/home', to: 'static_pages#home'
   get '/about', to: 'static_pages#about'
