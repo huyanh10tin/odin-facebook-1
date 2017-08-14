@@ -11,8 +11,8 @@
         <p class="text-muted">Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
         <p class="text-warning"><%= "#{post.likes.count} #{'person'.pluralize(post.likes.count)}" %> <i class="fa fa-heart"></i> this.</p>
 
-        <ul class="list-group">
-          <%= render partial: 'comments/comment', collection: post.comments %>
+        <ul class="media-list">
+          <%= render post.comments %>
         </ul>
 
 

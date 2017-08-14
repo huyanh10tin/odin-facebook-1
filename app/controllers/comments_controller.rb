@@ -7,12 +7,6 @@ class CommentsController < ApplicationController
     redirect_to request.referrer
   end
 
-  def update
-    comment = Comment.find(params[:id])
-    comment.update_attributes(content: params[:comment][:content])
-    redirect_to request.referrer
-  end
-
   def destroy
     @comment = Comment.find(params[:id]).destroy
     redirect_to request.referrer

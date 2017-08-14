@@ -12,18 +12,16 @@
 
               <div class="profile">
                 <div class="col-md-3">
-                  <%= render 'shared/user_info', user: @user %>
-
-                  <% unless @user == current_user || @user.friends.include?(current_user) %>
-                    <%= render 'send_friend_request' %>
-                  <% end %>
-
+                  <%= render 'shared/user_info', user: current_user %>
                   <%= render 'posts/post_form' %>
                 </div>
               </div>
 
               <div class="col-md-8 col-md-offset-1">
-                <%= render 'users/home_feeds' %>
+                <div class="text-center">
+                  <h3 class="title text-primary">Your Feed</h3>
+                </div>
+                <%= render @feed_items %>
               </div>
 
             </div>
@@ -35,4 +33,3 @@
 <% else %>
   <%= render 'static_pages/landing' %>
 <% end %>
-

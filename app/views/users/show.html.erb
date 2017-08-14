@@ -18,7 +18,10 @@
             </div>
 
             <div class="col-md-8 col-md-offset-1">
-                <%= render 'users/post_feed' %>
+              <div class="text-center">
+                <h3 class="title text-primary"><%= @user.name %>'s Posts</h3>
+              </div>
+              <%= render @feed_items %>
             </div>
 
           </div>
