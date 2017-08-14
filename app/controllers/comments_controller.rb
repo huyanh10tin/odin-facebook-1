@@ -3,12 +3,17 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    flash[:danger] = 'Could not comment on post.' unless @comment.save
+    if @comment.save
+      flash[:sucess] = "Comment posted."
+    else
+      flash[:danger] = 'Could not comment on post.'
+    end
     redirect_to request.referrer
   end
 
   def destroy
     @comment = Comment.find(params[:id]).destroy
+    flash[:info] = "Comment deleted."
     redirect_to request.referrer
   end
 
