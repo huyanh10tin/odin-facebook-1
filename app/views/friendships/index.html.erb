@@ -10,7 +10,7 @@
             <h4>You have no friends yet.</h4>
             <%= link_to "Go make some!", users_path, class: "text-primary" %>
           <% else %>
-            <ul class="list-group">
+            <ul class="media-list">
               <%= render partial: 'users/friend', collection: @friends %>
             </ul>
           <% end %>

@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
-      flash[:sucess] = "Comment posted."
+      flash[:success] = "Comment posted."
     else
       flash[:danger] = 'Could not comment on post.'
     end

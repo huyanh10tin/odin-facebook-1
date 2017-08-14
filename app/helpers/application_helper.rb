@@ -10,7 +10,7 @@ module ApplicationHelper
   def alert_icon(type)
     case type
     when 'notice' then 'check'
-    when 'sucess' then 'check'
+    when 'success' then 'check'
     when 'info' then 'info_outline'
     when 'alert' then 'error_outline'
     else type
