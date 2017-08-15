@@ -9,4 +9,4 @@ For more information about this project, check it out
 
 ## TODO:
 * Image posting
-* Profile image uploadUse the Paperclip gem to allow users to upload a photo to their profile
+* Profile image upload
