@@ -3,7 +3,7 @@ User.create!(name:  "Example User",
              password:              "foobar",
              password_confirmation: "foobar")
 
-99.times do |n|
+65.times do |n|
   name  = Faker::Name.name
   email = "user-#{n + 1}@example.com"
   password = "password"
@@ -16,7 +16,7 @@ end
 # Posts
 users = User.order(:created_at).take(6)
 50.times do
-  content = Faker::Lorem.paragraphs(2)
+  content = Faker::Lorem.paragraph(4)
   users.each { |user| user.posts.create!(content: content) }
 end
 

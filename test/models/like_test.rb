@@ -20,4 +20,9 @@ class LikeTest < ActiveSupport::TestCase
     @like.post = nil
     assert_not @like.valid?
   end
+
+  test 'user liking own post' do
+    like = posts(:podracer).likes.build(user: @user)
+    assert_not like.valid?
+  end
 end

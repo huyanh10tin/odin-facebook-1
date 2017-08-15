@@ -10,6 +10,6 @@ class Like < ApplicationRecord
   private
 
   def not_own_post
-    errors.add(:post, 'cannot like own post') if user.posts.include?(post)
+    errors.add(:like, 'cannot like own post') if post.user == user
   end
 end

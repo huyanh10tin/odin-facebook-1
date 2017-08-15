@@ -23,3 +23,10 @@ leia:
   name: Leia
   email: leia@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name:  <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+<% end %>
